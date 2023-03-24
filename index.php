@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="design/font_awesome/css/font-awesome.css">
     <title>Home</title>
     <? require "database.php";
     $stmt = $dbcon->prepare("SELECT * FROM RECEPT");
@@ -31,7 +32,7 @@
             </div>
             <div class="buttons">
                 <a href="recepten.php">sign up and get started</a>
-                <p>Or alternatively<a href="recepten.php">log in</a>
+                <h2>Or alternatively</h2><a href="recepten.php">log in</a>
             </div>
         </div>
         <div class="hero_img">
@@ -49,37 +50,30 @@
             </ul>
         </div>
         <div class="container_main2">
-            <h2>Check out our recipes</h2>
+            <h3>Check out our recipes</h3>
             <div class="recipe_container">
-            <?
-            foreach ($result as $recept) {
-                echo "<div class='recept'>";
-                echo "<h2>" . $recept['naam'] . "</h2>";
-                echo "<img src='images/" . $recept['img_url'] . "' alt=''>";
-                echo "<p>" . $recept['excerpt'] . "</p>";
-                echo "<a href='recept.php?id=" . $recept['id'] . "'>Bekijk recept</a>";
-                echo "</div>";
-            }
-            ?>
+                <?
+                foreach ($result as $recept) {
+                    echo "<div class='recept'>";
+                    echo "<a href='recept.php?id=" . $recept['id'] . "'><h2>" . $recept['naam'] . "</h2></a>";
+                    echo "<a href='recept.php?id=" . $recept['id'] . "'><img src='images/" . $recept['img_url'] . "' alt=''></a>";
+                    echo "<p>" . $recept['excerpt'] . "</p>";
+                    echo "</div>";
+                }
+                ?>
+                <div class="see_all">
+                    <a href="recipes.php">
+                        <ul>
+                            <li><a href="recepten.php">see all recipes</a></li>
+                            <li><a href="recepten.php"><div class="arrow"></a></div></li>
+                        </ul>
+                    </a>
+                </div>
             </div>
-            
+
         </div>
 
     </div>
-
-
-
-
-    <!-- <div class="content_home">
-        <h1>Home</h1>
-        <h2> Alles in het leven draait om lekker eten</h2>
-        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto consequatur mollitia, minus labore molestias similique natus deleniti blanditiis reprehenderit. Dolorem porro, nobis sed pariatur ipsa alias ratione sequi magnam non?</p>
-        <h2>Bekijk onze recepten:</h2>
-        <div class="recept_container">
-           
-        </div>
-    </div> -->
-
 </body>
 
 </html>
