@@ -1,7 +1,7 @@
 <nav>
 <ul>
 <li><a href="index.php">
-    <img src="design/logo.png" alt="logo">
+    <img src="design/logo.svg" alt="logo">
     </a>
 </li>
 <li><a href="login.php">Login</a></li>

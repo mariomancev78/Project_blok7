@@ -24,36 +24,33 @@
     <? require "blades/nav.php"; ?>
 
     <div class="hero">
-        <div class="hero_text">
-            <h1>welcome to kibbee</h1>
-           <h2>your online recipe book</h2>
+        <div class="container_hero1">
+            <div class="hero_text">
+                <h1>welcome to <span> kibbee</span> </h1>
+                <h2>your online recipe book</h2>
+            </div>
+            <div class="buttons">
+                <a href="recepten.php">sign up and get started</a>
+                <p>Or alternatively<a href="recepten.php">log in</a>
+            </div>
         </div>
-        <div class="buttons">
-            <a href="recepten.php">sign up and get started</a>
-            <p>Or alternatively<a href="recepten.php">log in</a>
+        <div class="hero_img">
+            <img src="design/logo.svg" alt="logo">
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="content_home">
-        <h1>Home</h1>
-        <h2> Alles in het leven draait om lekker eten</h2>
-        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto consequatur mollitia, minus labore molestias similique natus deleniti blanditiis reprehenderit. Dolorem porro, nobis sed pariatur ipsa alias ratione sequi magnam non?</p>
-        <h2>Bekijk onze recepten:</h2>
-        <div class="recept_container">
+    <div class="main">
+        <div class="containter_main1">
+            <h1> <span>kibbe </span> makes managing your recipes</h1>
+            <ul>
+                <li>Easy and fun</li>
+                <li>Accesible for everyone</li>
+                <li>Managable by showing you recipes based on skill level</li>
+            </ul>
+        </div>
+        <div class="container_main2">
+            <h2>Check out our recipes</h2>
+            <div class="recipe_container">
             <?
             foreach ($result as $recept) {
                 echo "<div class='recept'>";
@@ -64,8 +61,24 @@
                 echo "</div>";
             }
             ?>
+            </div>
+            
         </div>
+
     </div>
+
+
+
+
+    <!-- <div class="content_home">
+        <h1>Home</h1>
+        <h2> Alles in het leven draait om lekker eten</h2>
+        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto consequatur mollitia, minus labore molestias similique natus deleniti blanditiis reprehenderit. Dolorem porro, nobis sed pariatur ipsa alias ratione sequi magnam non?</p>
+        <h2>Bekijk onze recepten:</h2>
+        <div class="recept_container">
+           
+        </div>
+    </div> -->
 
 </body>
 
