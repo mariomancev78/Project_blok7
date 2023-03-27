@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="design/font_awesome/css/font-awesome.css">
     <title>Home</title>
     <? require "database.php";
     $stmt = $dbcon->prepare("SELECT * FROM RECEPT");

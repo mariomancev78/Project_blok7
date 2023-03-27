@@ -16,13 +16,15 @@
     $result = $conn->fetchAll();
 
     if (isset($_POST['delete'])) {
+        $id = $_POST['id'];
         $sql = "DELETE FROM GEBRUIKER WHERE id = :id";
         $conn = $dbcon->prepare($sql);
         $conn->bindParam(":id", $id);
         $conn->execute();
-        header("Location: dashboard.php");
+        header("Location: dashboard_user.php");
     }
     if (isset($_POST['update'])) {
+        $id = $_POST['id'];
         $sql = "UPDATE GEBRUIKER SET gebruikersnaam = :gebruikersnaam, email = :email, wachtwoord = :wachtwoord WHERE id = :id";
         $conn = $dbcon->prepare($sql);
         $conn->bindParam(":gebruikersnaam", $_POST['gebruikersnaam']);

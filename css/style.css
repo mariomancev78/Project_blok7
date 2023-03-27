@@ -63,7 +63,6 @@ a {
     text-decoration: none;
 }
 
-/* Path: css/style.css */
 /* global colors
 
 Dark blue #1b1f3b
@@ -426,4 +425,29 @@ input[type=password] {
 input,
 button {
     margin-bottom: 10px;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.dashboard td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.dashboard tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dashboard {
+    color: blue;
+    text-decoration: none;
 }
