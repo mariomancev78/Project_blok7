@@ -23,9 +23,7 @@
             <h1><? echo $result['naam']; ?></h1>
             <img src="images/<? echo $result['img_url']; ?>" alt="">
             <p><? echo $result['excerpt']; ?></p>
-
             <p><? echo $result['bereiding']; ?></p>
-            //bereiden should be explode . separate strings with a dot
         </div>
         <a href="index.php">terug naar de home pagina</a>
     </div>

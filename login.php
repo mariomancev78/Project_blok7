@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Login</title>
+</head>
     <?
     require 'database.php';
 
@@ -41,26 +42,14 @@
 
 <body>
     <? require "blades/nav.php"; ?>
-    <div class="content_home">
+    <div class="containter_login_register">
         <form action="" method=post>
-            <table>
-                <tr>
-                    <td><label for="gebruikersnaam">gebruikersnaam</label>
-                        <input type="text" name="gebruikersnaam">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="wachtwoord">wachtwoord</label>
-                        <input type="password" name="wachtwoord">
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="submit" name="submit"></td>
-                </tr>
-                <tr>
-                    <td><a href="registreren.php">registreren</a></td>
-                </tr>
-            </table>
+            <label for="gebruikersnaam">gebruikersnaam</label>
+            <input type="text" name="gebruikersnaam">
+            <label for="wachtwoord">wachtwoord</label>
+            <input type="password" name="wachtwoord">
+            <input type="submit" value="submit" name="submit"></td>
+            <a href="registreren.php">registreren</a></td>
         </form>
     </div>
 </body>

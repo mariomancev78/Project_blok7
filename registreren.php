@@ -33,31 +33,16 @@
 
 <body>
     <? require "blades/nav.php"; ?>
-    <div class="content_home">
+    <div class="containter_login_register">
         <form action="" method="post">
-            <table>
-                <tr>
-                    <td><label for="gebruikersnaam">gebruikersnaam</label>
-                        <input type="text" name="gebruikersnaam">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="wachtwoord">wachtwoord</label>
-                        <input type="password" name="wachtwoord">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="email">email</label>
-                        <input type="text" name="email">
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="submit" name="submit"></td>
-                </tr>
-                <tr>
-                    <td><a href="login.php">inloggen</a></td>
-                </tr>
-            </table>
+            <label for="gebruikersnaam">gebruikersnaam</label>
+            <input type="text" name="gebruikersnaam">
+            <label for="wachtwoord">wachtwoord</label>
+            <input type="password" name="wachtwoord">
+            <label for="email">email</label>
+            <input type="text" name="email">
+            <input type="submit" value="submit" name="submit">
+            <a href="login.php">inloggen</a>
         </form>
     </div>
 </body>

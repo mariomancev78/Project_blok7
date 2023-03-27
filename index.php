@@ -31,8 +31,8 @@
                 <h2>your online recipe book</h2>
             </div>
             <div class="buttons">
-                <a href="recepten.php">sign up and get started</a>
-                <h2>Or alternatively</h2><a href="recepten.php">log in</a>
+                <a href="registreren.php">sign up and get started</a>
+                <h2>Or alternatively</h2><a href="login.php">log in</a>
             </div>
         </div>
         <div class="hero_img">
@@ -65,13 +65,17 @@
                     <a href="recipes.php">
                         <ul>
                             <li><a href="recepten.php">see all recipes</a></li>
-                            <li><a href="recepten.php"><div class="arrow"></a></div></li>
+                            <li><a href="recepten.php">
+                                    <div class="arrow">
+                                </a>
+                            </li>
                         </ul>
-                    </a>
                 </div>
+                </a>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 </body>
