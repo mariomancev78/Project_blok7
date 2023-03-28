@@ -8,6 +8,7 @@
     <title>registreren</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <? require "database.php";
+    $succes = null;
     if (isset($_POST['submit'])) :
         $gebruikersnaam = $_POST['gebruikersnaam'];
         $wachtwoord = $_POST['wachtwoord'];
@@ -23,9 +24,9 @@
 
         $count = $stmt->rowCount();
         if ($count > 0) {
-            echo "succesvol geregistreerd";
+            $succes = true;
         } else {
-            echo "er is iets fout gegaan";
+            $succes = false;
         }
     endif;
     ?>
@@ -40,9 +41,18 @@
             <label for="wachtwoord">wachtwoord</label>
             <input type="password" name="wachtwoord">
             <label for="email">email</label>
-            <input type="text" name="email">
+            <input type="email" name="email">
             <input type="submit" value="submit" name="submit">
             <a href="login.php">inloggen</a>
+            <?
+            if (isset($_POST['submit'])) {
+                if ($succes == true) {
+                    echo "succesvol geregistreerd";
+                } else {
+                    echo "er is iets fout gegaan";
+                }
+            }
+            ?>
         </form>
     </div>
 </body>

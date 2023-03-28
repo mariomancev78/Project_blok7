@@ -17,27 +17,29 @@
 </head>
 
 <body>
-    <? //require "blades/nav.php"; ?>
+    <? require "blades/nav.php";
+    ?>
     <div class="dashboard">
         <table>
-            <? foreach ($result as $row) : ?>
+            <thead>
                 <tr>
                     <td>gebruikersnaam</td>
-                    <td><? echo $row['gebruikersnaam']; ?></td>
-                    <td>
-                        <a href="edit_user.php?id=<? echo $row['id']; ?>">edit</a>
-                    </td>
-                </tr>
-                <tr>
                     <td>email</td>
-                    <td><? echo $row['email']; ?></td>
-                </tr>
-                <tr>
                     <td>rol</td>
-                    <td><? echo $row['rol']; ?></td>
-
+                    <td>Pas gebruiker aan</td>
                 </tr>
-            <? endforeach; ?>
+            </thead>
+            <tbody>
+
+                <? foreach ($result as $row) : ?>
+                    <tr>
+                        <td><? echo $row['gebruikersnaam']; ?></td>
+                        <td><? echo $row['email']; ?></td>
+                        <td><? echo $row['rol']; ?></td>
+                        <td class="button" ><a href="edit_user.php?id=<? echo $row['id']; ?>">edit</a></td>
+                    </tr>
+                <? endforeach; ?>
+            </tbody>
         </table>
     </div>
 </body>

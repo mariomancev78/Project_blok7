@@ -11,8 +11,32 @@
 </head>
 
 <body>
-    <? require 'blades/nav.php'; ?>
+    <? require 'blades/nav.php';
+    $stmt = $dbcon->prepare("SELECT * FROM INGREDIENT");
+    $stmt->execute();
+    $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
 
 </body>
+<div class="dashboard">
+    <table>
+        <thead>
+            <tr>
+                <td>Naam ingredient</td>
+                <td>Type ingredient</td>
+                <td>Pas ingredient aan</td>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($stmt as $result) : ?>
+                <tr>
+                    <td><? echo $result['name']; ?></td>
+                    <td><? echo $result['type']; ?></td>
+                    <td class="button"> bewerk ingredient</td>
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 </html>

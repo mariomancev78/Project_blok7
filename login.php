@@ -22,13 +22,14 @@
         $stmt->bindParam(':wachtwoord', $wachtwoord);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $rol = $result[0]['rol'];
 
 
         $count = $stmt->rowCount();
         if ($count > 0) {
             $_SESSION['gebruikersnaam'] = $gebruikersnaam;
-            $_SESSION['rol'] = $rol;
+            $_SESSION['rol'] = $result[0]['rol'];
+            $_SESSION['gebruiker_id'] = $result[0]['id'];
+
             if ($rol = "admin") {
                 header("Location: index.php");
             } else {

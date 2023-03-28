@@ -10,7 +10,13 @@
             <li><a href="dashboard_user.php">user dashboard</a></li>
             <li><a href="dashboard_recepten.php">recepten dashboard</a></li>
             <li><a href="dashboard_ingredienten.php">ingredienten dashboard</a></li>
-        <? } ?> 
+            <li><a href="recept_maak.php">maak een recept</a></li>
+            <li><a href="mijn_recepten.php">mijn recepten</a></li>
+            <? } 
+            else if (isset($_SESSION['rol']) && $_SESSION['rol'] == "user") { ?>
+                <li><a href="recept_maak.php">maak een recept</a></li>
+                <li><a href="recept_maak.php">mijn recepten</a></li>
+            <? } ?>
 
         
     </ul>

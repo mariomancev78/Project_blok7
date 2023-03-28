@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Home</title>
     <? require "database.php";
-    $stmt = $dbcon->prepare("SELECT * FROM RECEPT");
+    $stmt = $dbcon->prepare("SELECT * FROM RECEPT LIMIT 2");
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -47,6 +47,11 @@
                 <li>Accesible for everyone</li>
                 <li>Managable by showing you recipes based on skill level</li>
             </ul>
+            <h3>This is what our customers say about us</h3>
+            <div class="testimonials">
+               
+            </div>
+
         </div>
         <div class="container_main2">
             <h3>Check out our recipes</h3>
@@ -77,6 +82,7 @@
     </div>
 
     </div>
+    <? require "blades/footer.php"; ?>
 </body>
 
 </html>
