@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +15,10 @@
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 </head>
+
 <body>
-<div class="dashboard">
+    <? require "blades/nav.php"; ?>
+    <div class="dashboard">
         <table>
             <thead>
                 <tr>
@@ -42,17 +45,19 @@
             <tbody>
                 <? foreach ($stmt as $result) : ?>
                     <tr>
-                    <td><? echo $result['naam']; ?></td>
-                    <td><? echo $result['excerpt']; ?></td>
-                    <td><? echo $result['bereidings_duur'] ?> </td>
-                    <td><? echo $result['menu_gang']; ?></td>
-                    <td><? echo $result['img_url']; ?></td>
-                    <td><? echo $result['moeilijkheid']; ?></td>
-                    <td class="button"> bewerk gerecht</td>
+                        <td><? echo $result['naam']; ?></td>
+                        <td><? echo $result['excerpt']; ?></td>
+                        <td><? echo $result['bereidings_duur'] ?> </td>
+                        <td><? echo $result['menu_gang']; ?></td>
+                        <td><? echo $result['img_url']; ?></td>
+                        <td><? echo $result['moeilijkheid']; ?></td>
+                        <td class="button"> bewerk gerecht</td>
                     </tr>
-                    <? endforeach; ?>
+                <? endforeach; ?>
             </tbody>
         </table>
-
+    </div>
+    <? require "blades/footer.php"; ?>
 </body>
+
 </html>

@@ -15,7 +15,6 @@ h2 {
     font-size: 30px;
     text-transform: uppercase;
     line-height: 72px;
-
 }
 
 h3 {
@@ -43,8 +42,6 @@ td {
     text-align: center;
 }
 
-
-
 p {
     font-family: Dosis, sans-serif;
 }
@@ -53,13 +50,7 @@ a {
     text-decoration: none;
 }
 
-/* global colors
-
-Dark blue #1b1f3b
-lighter, but still dark blue #3b4482
-light blue #6978e5
-
-*/
+/* global colors Dark blue #1b1f3b lighter, but still dark blue #3b4482 light blue #6978e5 */
 nav {
     height: 100px;
     width: 98%;
@@ -109,7 +100,6 @@ li a {
     color: black;
 }
 
-
 /* start hero */
 .hero {
     width: 100%;
@@ -120,6 +110,8 @@ li a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,7 +147,6 @@ li a {
 .container_hero1 span {
     text-transform: uppercase;
 }
-
 
 .hero_img {
     width: 50%;
@@ -208,7 +199,6 @@ li a {
 }
 
 /* end hero */
-
 /* start main */
 .main {
     width: 100%;
@@ -305,7 +295,6 @@ li a {
     border-radius: 5px;
 }
 
-
 .recept {
     background-color: #ffffff;
     width: 300px;
@@ -326,10 +315,9 @@ li a {
 }
 
 /* .see_all{
-
-} */
-
-.see_all{
+}
+*/
+.see_all {
     width: 100%;
     height: 100%;
     margin-top: 10px;
@@ -344,11 +332,11 @@ li a {
     box-sizing: border-box;
     border-radius: 5px;
 }
+
 .see_all ul {
     display: inline;
     list-style-type: none;
     justify-content: space-between;
-
     text-align: center;
     align-items: center;
     flex-direction: row;
@@ -376,8 +364,6 @@ li a {
 }
 
 /* end index */
-
-
 .containter_login_register {
     width: 400px;
     margin: 0 auto;
@@ -397,10 +383,16 @@ li a {
 .containter_login_register label {
     font-weight: bold;
     margin-bottom: 5px;
-
 }
 
 .containter_login_register input[type=text],
+input[type=password] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+}
+.containter_login_register input[type=email],
 input[type=password] {
     padding: 10px;
     border: 1px solid #ccc;
@@ -452,6 +444,11 @@ button {
     background-color: #f2f2f2;
 }
 
+.dashboard a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .testimonials {
     width: 100%;
     height: 96vh;
@@ -482,6 +479,7 @@ button {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -573,7 +571,8 @@ button {
     box-sizing: border-box;
     border-radius: 5px;
 }
-.recepten_container{
+
+.recepten_container {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -584,7 +583,8 @@ button {
     box-sizing: border-box;
     border-radius: 5px;
 }
-.recepten_card{
+
+.recepten_card {
     margin-top: 15px;
     margin-bottom: 15px;
     min-height: 300px;
@@ -610,7 +610,8 @@ button {
     margin-bottom: 15px;
     min-height: 200px;
 }
-.recepten_card_section1{
+
+.recepten_card_section1 {
     width: 50%;
     height: 100%;
     display: flex;
@@ -623,9 +624,9 @@ button {
     box-sizing: border-box;
     border-radius: 5px;
     flex-grow: 2;
-
 }
-.recepten_card_section2{
+
+.recepten_card_section2 {
     width: 50%;
     height: 100%;
     display: flex;
@@ -637,20 +638,154 @@ button {
     padding: 0 20px;
     box-sizing: border-box;
     border-radius: 5px;
-
 }
-footer{
+
+footer {
+    margin-top: 15px;
     width: 100%;
-    height: 50vh;
+    height: 100%;
+    background-color: #1b1f3b;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.container_footer {
+    width: 100%;
+    height: 100%;
+    background-color: #1b1f3b;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.row_footer {
+    width: 100%;
+    height: 100%;
+    background-color: #1b1f3b;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.col_footer {
+    width: 25%;
+    height: 100%;
     background-color: #1b1f3b;
     display: flex;
     justify-content: start;
     align-items: start;
     flex-direction: column;
-    text-align: center;
     color: #ffffff;
     padding: 0 20px;
     box-sizing: border-box;
     border-radius: 5px;
-    margin-top: 10px;
+}
+
+.recept_main {
+    width: 100%;
+    height: 100vh;
+    padding-top: 120px;
+    background-color: #1b1f3b;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.recept_container {
+    width: 100%;
+    height: 100%;
+    margin-top: 150px;
+    background-color: #1b1f3b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    flex-direction: row;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.recept_col1 {
+    width: 30%;
+    height: 90%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    color: #1b1f3b;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    text-align: center;
+}
+.recept_col1 img {
+    width: 90%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 15px 15px 15px 15px;
+
+
+}
+.recept_col2 {
+    width: 50%;
+    height: 90%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    color: #1b1f3b;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.recept_col2 h1 {
+    margin: 15px 15px 15px 15px;
+}
+.recept_col2 p {
+    margin: 15px 15px 15px 15px;
+    font-size: medium;
+}
+
+.recept_col3 {
+    width: 15%;
+    height: 90%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    color: #ffffff;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }

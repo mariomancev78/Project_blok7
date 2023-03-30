@@ -35,7 +35,7 @@
 <body>
     <? require "blades/nav.php"; ?>
     <div class="containter_login_register">
-        <form action="" method="post">
+        <form method="post">
             <label for="gebruikersnaam">gebruikersnaam</label>
             <input type="text" name="gebruikersnaam">
             <label for="wachtwoord">wachtwoord</label>
