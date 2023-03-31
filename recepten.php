@@ -13,13 +13,34 @@
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if(isset($_GET['submit'])){
-        $type = $_GET['type'];
-        $duur = $_GET['duur'];
-        $skill = $_GET['skill'];
-        $search = $_GET['search'];
-        $stmt = $dbcon->prepare("SELECT * FROM RECEPT WHERE menu_gang = :type AND bereidings_duur <= :duur AND moeilijkheid = :skill AND RECEPT.naam LIKE :search");
-        $stmt->execute([':type' => $type, ':duur' => $duur, ':skill' => $skill, ':search' => '%' . $search . '%']);
+         $type = $_GET['type'];
+         $duur = $_GET['duur'];
+         $skill = $_GET['skill'];
+         $search = $_GET['search'];
+        $sql = "SELECT * FROM RECEPT WHERE 1";
+         $parameters =[];
+         if(!empty($_GET['type'])){
+             $sql .=" AND menu_gang = ?";
+             $parameters[] =$type;
+         };
+         if(!empty($_GET['duur'])){
+             $sql .=" AND bereidings_duur <= ?";
+             $parameters[] =$duur;
+         };
+         if(!empty($_GET['skill'])){
+             $sql .=" AND moeilijkheid = ?";
+             $parameters[] =$skill;
+         };
+         if(!empty($_GET['search'])){
+             $sql .=" AND naam LIKE ?";
+             $parameters[] ="%".$search."%";
+         };
+        
+        $stmt = $dbcon->prepare($sql);
+        $stmt->execute($parameters);
         $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+
     }
 ?>
 
@@ -41,6 +62,7 @@
                 <div class="filterbar_section1">
                     <h3>type gerecht</h3>
                     <select name="type" id="type">
+                        <option value="" selected>alle gerechten</option>
                         <option value="ontbijt">ontbijt</option>
                         <option value="lunch">lunch</option>
                         <option value="voorgerecht">voorgerecht</option>
@@ -52,10 +74,11 @@
                 <div class="filterbar_section2">
                     <h3>duur bereiding</h3>
                     <select name="duur" id="duur">
+                        <option value="" selected>alle mogelijkheden</option>
                         <option value="15">15 minuten of minder</option>
-                        <option value="30">tussen de 15 en 30 minuten</option>
-                        <option value="45">tussen de 30 en 45 minuten</option>
-                        <option value="60">tussen de 45 en 60 minuten</option>
+                        <option value="30">maximaal 30 minuten</option>
+                        <option value="45">maximaal 45 minuten</option>
+                        <option value="60">maximaal 60 minuten</option>
                         <option value="60+">60+ minuten</option>
                     </select>
                 </div>
@@ -63,6 +86,7 @@
                 <div class="filterbar_section3">
                     <h3>skill level</h3>
                     <select name="skill" id="skill">
+                        <option value="" selected>alle</option>
                         <option value="easy">easy</option>
                         <option value="medium">medium</option>
                         <option value="hard">hard</option>
