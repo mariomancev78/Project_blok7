@@ -33,7 +33,7 @@
             if ($rol = "admin") {
                 header("Location: index.php");
             } else {
-                header("Location: login.php");
+                header("Location: index.php");
             }
         } else {
             echo "gebruikersnaam of wachtwoord is onjuist";

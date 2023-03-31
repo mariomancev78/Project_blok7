@@ -11,7 +11,20 @@
     $stmt = $dbcon->prepare("SELECT * FROM RECEPT");
     $stmt->execute();
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    ?>
+
+    if(isset($_GET['submit'])){
+        $type = $_GET['type'];
+        $duur = $_GET['duur'];
+        $skill = $_GET['skill'];
+        $search = $_GET['search'];
+        $stmt = $dbcon->prepare("SELECT * FROM RECEPT WHERE menu_gang = :type AND bereidings_duur <= :duur AND moeilijkheid = :skill AND RECEPT.naam LIKE :search");
+        $stmt->execute([':type' => $type, ':duur' => $duur, ':skill' => $skill, ':search' => '%' . $search . '%']);
+        $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+?>
+
+
+
 </head>
 
 <body>
@@ -22,41 +35,48 @@
             <h1>our recipes</h1>
         </div>
     </div>
+    <form method="get">
     <div class="recepten_main">
         <div class="recept_fiterbar">
+                <div class="filterbar_section1">
+                    <h3>type gerecht</h3>
+                    <select name="type" id="type">
+                        <option value="ontbijt">ontbijt</option>
+                        <option value="lunch">lunch</option>
+                        <option value="voorgerecht">voorgerecht</option>
+                        <option value="hoofdgerecht">hoofdgerecht</option>
+                        <option value="nagerecht">nagerecht</option>
+                        <option value="bijgerecht">bijgerecht</option>
+                    </select>
+                </div>
+                <div class="filterbar_section2">
+                    <h3>duur bereiding</h3>
+                    <select name="duur" id="duur">
+                        <option value="15">15 minuten of minder</option>
+                        <option value="30">tussen de 15 en 30 minuten</option>
+                        <option value="45">tussen de 30 en 45 minuten</option>
+                        <option value="60">tussen de 45 en 60 minuten</option>
+                        <option value="60+">60+ minuten</option>
+                    </select>
+                </div>
 
-            <div class="filterbar_section1">
-                <h3>type gerecht</h3>
-                <select name="type" id="type">
-                    <option value="hoofdgerecht">hoofdgerecht</option>
-                    <option value="voorgerecht">voorgerecht</option>
-                    <option value="nagerecht">nagerecht</option>
-                    <option value="snack">snack</option>
-                </select>
-            </div>
-            <div class="filterbar_section2">
-                <h3>duur bereiding</h3>
-                <select name="duur" id="duur">
-                    <option value="15">15 minuten</option>
-                    <option value="30">30 minuten</option>
-                    <option value="45">45 minuten</option>
-                    <option value="60">60 minuten</option>
-                </select>
-            </div>
+                <div class="filterbar_section3">
+                    <h3>skill level</h3>
+                    <select name="skill" id="skill">
+                        <option value="easy">easy</option>
+                        <option value="medium">medium</option>
+                        <option value="hard">hard</option>
+                    </select>
+                </div>
 
-            <div class="filterbar_section3">
-                <h3>skill level</h3>
-                <select name="skill" id="skill">
-                    <option value="beginner">beginner</option>
-                    <option value="intermediate">intermediate</option>
-                    <option value="advanced">advanced</option>
-                </select>
-            </div>
-
-            <div class="filterbar_section4">
-                <h3>Zoeken:</h3>
-                <input type="text" name="search" id="search">
-            </div>
+                <div class="filterbar_section4">
+                    <h3>Zoeken:</h3>
+                    <input type="text" name="search" id="search">
+                </div>
+                <div class="filterbar_section5">
+                    <button type="submit" name="submit">Zoeken</button>
+                </div>
+            </form>
         </div>
         <div class="recepten_container">
             <?
@@ -75,7 +95,7 @@
         </div>
     </div>
 
-<? require 'blades/footer.php'; ?>
+    <? require 'blades/footer.php'; ?>
 </body>
 
 </html>

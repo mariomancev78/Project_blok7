@@ -12,6 +12,11 @@
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    $tstmnls_sql = $dbcon->prepare("SELECT * FROM TESTIMONIALS ORDER BY RAND() LIMIT 3");
+    $tstmnls_sql->execute();
+    $tstmnls = $tstmnls_sql->fetchAll(PDO::FETCH_ASSOC);
+
+
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['gebruikersnaam']);
@@ -49,35 +54,46 @@
             </ul>
             <h3>This is what our customers say about us</h3>
             <div class="testimonials">
-               
-            </div>
-
-        </div>
-        <div class="container_main2">
-            <h3>Check out our recipes</h3>
-            <div class="recipe_container">
-                <?
-                foreach ($result as $recept) {
-                    echo "<div class='recept'>";
-                    echo "<a href='recept.php?id=" . $recept['id'] . "'><h2>" . $recept['naam'] . "</h2></a>";
-                    echo "<a href='recept.php?id=" . $recept['id'] . "'><img src='images/" . $recept['img_url'] . "' alt=''></a>";
-                    echo "<p>" . $recept['excerpt'] . "</p>";
+                <? foreach ($tstmnls as $tstml) {
+                    echo "<div class='col'>";
+                    echo "<div class='testimonial_img'>";
+                    echo "<img src='images/testimonials/" . $tstml['img_url'] . "' alt='profielfoto'>";
                     echo "</div>";
-                }
-                ?>
-                <div class="see_all">
-                    <a href="recipes.php">
-                        <ul>
-                            <li><a href="recepten.php">see all recipes</a></li>
-                            <li><a href="recepten.php">
-                                    <div class="arrow">
-                                </a>
-                            </li>
-                        </ul>
-                </div>
-                </a>
+                    echo "<h4>" . $tstml['name'] . "</h4>";
+                    echo "<div class='testimonial_text'>";
+                    echo "<p>" . $tstml['testimonial'] . "</p>";
+                    echo "<img src='images/testimonials/star" . $tstml['stars'] .".svg"."' alt='profielfoto'>";
+                    echo "</div>";
+                    echo "</div>";
+                } ?>
             </div>
         </div>
+
+    <div class="container_main2">
+        <h3>Check out our recipes</h3>
+        <div class="recipe_container">
+            <?
+            foreach ($result as $recept) {
+                echo "<div class='recept'>";
+                echo "<a href='recept.php?id=" . $recept['id'] . "'><h2>" . $recept['naam'] . "</h2></a>";
+                echo "<a href='recept.php?id=" . $recept['id'] . "'><img src='images/" . $recept['img_url'] . "' alt=''></a>";
+                echo "<p>" . $recept['excerpt'] . "</p>";
+                echo "</div>";
+            }
+            ?>
+            <div class="see_all">
+                <a href="recipes.php">
+                    <ul>
+                        <li><a href="recepten.php">see all recipes</a></li>
+                        <li><a href="recepten.php">
+                                <div class="arrow">
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+            </a>
+        </div>
+    </div>
 
     </div>
 
