@@ -13,12 +13,12 @@
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if(isset($_GET['submit'])){
-         $type = $_GET['type'];
-         $duur = $_GET['duur'];
-         $skill = $_GET['skill'];
-         $search = $_GET['search'];
+        $type = $_GET['type'];
+        $duur = $_GET['duur'];
+        $skill = $_GET['skill'];
+        $search = $_GET['search'];
         $sql = "SELECT * FROM RECEPT WHERE 1";
-         $parameters =[];
+        $parameters =[];
          if(!empty($_GET['type'])){
              $sql .=" AND menu_gang = ?";
              $parameters[] =$type;
@@ -35,12 +35,9 @@
              $sql .=" AND naam LIKE ?";
              $parameters[] ="%".$search."%";
          };
-        
         $stmt = $dbcon->prepare($sql);
         $stmt->execute($parameters);
         $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
-
     }
 ?>
 

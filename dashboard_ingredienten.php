@@ -17,7 +17,6 @@
     $stmt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
-</body>
 <div class="dashboard">
     <table>
         <thead>
@@ -34,9 +33,10 @@
                     <td><? echo $result['type']; ?></td>
                     <td class="button"> bewerk ingredient</td>
                 </tr>
-            <? endforeach; ?>
-        </tbody>
-    </table>
-</div>
-
+                <? endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
 </html>

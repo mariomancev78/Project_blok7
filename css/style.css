@@ -848,25 +848,29 @@ footer a {
     width: 100%;
     border-color: #FFFFFF;
 }
-.ook_interessant{
+
+.ook_interessant {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: fit-content;
 }
-.title_oi{
+
+.title_oi {
     margin: 15px 15px 15px 15px;
     font-size: 20px;
     font-weight: bold;
     color: #1b1f3b;
     align-self: center;
 }
-.title_oi a{
+
+.title_oi a {
     color: #1b1f3b;
     text-decoration: none;
 }
-.ook_interessant_container{
+
+.ook_interessant_container {
     width: 100%;
     height: 100%;
     margin-top: 150px;
@@ -879,4 +883,14 @@ footer a {
     padding: 0 20px;
     box-sizing: border-box;
     border-radius: 5px;
+}
+
+#input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+    width: 100px;
+    background-color: #1b1f3b;
 }
