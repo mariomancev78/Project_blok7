@@ -31,12 +31,12 @@
                 <tr>
                     <td><? echo $result['name']; ?></td>
                     <td><? echo $result['type']; ?></td>
-                    <td class="button"> bewerk ingredient</td>
+                    <td class="button" ><a href="edit_ingredienten.php?id=<? echo $result['id']; ?>">edit</a></td>
                 </tr>
                 <? endforeach; ?>
             </tbody>
         </table>
     </div>
-    
+    <? require 'blades/footer.php'; ?>
 </body>
 </html>

@@ -6,7 +6,7 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="recepten.php">Recepten</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="mijn_recepten.php">Mijn recepten</a></li>
                 </ul>
             </div>
             <div class="col_footer">

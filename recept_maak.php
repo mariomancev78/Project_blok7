@@ -23,8 +23,6 @@
         $ingredient_naam = $_POST['input-1'];
         $ingredient_type = $_POST['select-1'];
 
-       
-        
         $stmt_recept = $dbcon->prepare("INSERT INTO RECEPT (gebruiker_id,naam, excerpt, menu_gang, bereidings_duur, moeilijkheid, img_url, bereiding) VALUES (:gebruiker_id, :naam,:excerpt, :menu_gang, :bereidings_duur, :moeilijkheid, :img_url, :bereiding)");
         $stmt_recept -> bindParam(':gebruiker_id', $gebruiker_id);
         $stmt_recept -> bindParam(':naam', $naam);
@@ -35,13 +33,13 @@
         $stmt_recept -> bindParam(':img_url', $img_url);
         $stmt_recept -> bindParam(':bereiding', $bereidingswijze);
 
-        $stmt_recept->execute();
+        // $stmt_recept->execute();
 
         $stmt_ingredienten = $dbcon->prepare("INSERT INTO INGREDIENT (name,type) VALUES (:naam,:type)");
         $stmt_ingredienten -> bindParam(':naam', $ingredient_naam);
         $stmt_ingredienten -> bindParam(':type', $ingredient_type);
 
-        $stmt_ingredienten->execute();
+        // $stmt_ingredienten->execute();
 
         for($i = 2; $i <= 10; $i++){
             if(isset($_POST['input-'.$i])){
@@ -49,15 +47,10 @@
                 $type = $_POST['select-'.$i];
                 $stmt_ingredienten -> bindParam(':naam', $naam);
                 $stmt_ingredienten -> bindParam(':type', $type);
-                $stmt_ingredienten->execute();
+                // $stmt_ingredienten->execute();
             }
         }
-
-     
-        header('Location: recepten.php');
     }
-  
-
 
     ?>
 </head>
@@ -72,7 +65,7 @@
     <div class="recepten_main">
         <div class="recepten_main_content">
             <div class="recepten_main_content_form">
-                <form method="post">
+                <form method="post" action="recept_maak_exec.php">
                     <div class="recepten_main_content_form_section1">
                         <h3>Recept informatie</h3>
                         <label for="naam">Naam</label>
@@ -162,8 +155,6 @@
                                 input_hoeveelheid.setAttribute('type', 'text');
                                 input_hoeveelheid.setAttribute('name', `hoeveelheid-${inputCount}`);
 
-
-
                                 inputContainer.appendChild(label_naam);
                                 inputContainer.appendChild(input_naam);
                                 inputContainer.appendChild(label_select);
@@ -179,8 +170,7 @@
                                 select.appendChild(option6_kruiden);
                                 select.appendChild(option7_water);
                                 select.appendChild(option8_olie);
-
-
+                                
                                 inputCount++;
                             });
                         </script>

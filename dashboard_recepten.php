@@ -20,47 +20,30 @@
         <table>
             <thead>
                 <tr>
-                    <td>
-                        Naam recept
-                    </td>
-                    <td>
-                        samenvatting
-                    </td>
-                    <td>
-                        duur bereiding
-                    </td>
-                    <td>
-                        menu_gang
-                    </td>
-                    <td>
-                        url naar afbeelding
-                    </td>
-                    <td>
-                        moeilijkheidsgraad
-                    </td>
+                    <td>Naam recept</td>
+                    <td>samenvatting</td>
+                    <td>duur bereiding</td>
+                    <td>menu_gang</td>
+                    <td>url naar afbeelding</td>
+                    <td>moeilijkheidsgraad</td>
                 </tr>
             </thead>
             <tbody>
                 <? foreach ($stmt as $result) : ?>
                     <tr>
-                    <td><? echo $result['naam']; ?></td>
-                    <td><? echo $result['excerpt']; ?></td>
-                    <td><? echo $result['bereidings_duur'] ?> </td>
-                    <td><? echo $result['menu_gang']; ?></td>
-                    <td><? echo $result['img_url']; ?></td>
-                    <td><? echo $result['moeilijkheid']; ?></td>
-                    <td class="button"> bewerk gerecht</td>
+                        <td><? echo $result['naam']; ?></td>
+                        <td><? echo $result['excerpt']; ?></td>
+                        <td><? echo $result['bereidings_duur'] ?> </td>
+                        <td><? echo $result['menu_gang']; ?></td>
+                        <td><? echo $result['img_url']; ?></td>
+                        <td><? echo $result['moeilijkheid']; ?></td>
+                        <td class="button" ><a href="edit_recept.php?id=<? echo $result['id']; ?>">edit</a></td>
                     </tr>
-                    <? endforeach; ?>
+                <? endforeach; ?>
             </tbody>
         </table>
-
-
-
-
-
-
     </div>
+    <? require 'blades/footer.php'; ?>
 </body>
 
 </html>

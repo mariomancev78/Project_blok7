@@ -42,6 +42,7 @@
             </tbody>
         </table>
     </div>
+    <? require "blades/footer.php"; ?>
 </body>
 
 </html>

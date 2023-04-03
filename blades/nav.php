@@ -15,7 +15,7 @@
             <? } 
             else if (isset($_SESSION['rol']) && $_SESSION['rol'] == "user") { ?>
                 <li><a href="recept_maak.php">maak een recept</a></li>
-                <li><a href="recept_maak.php">mijn recepten</a></li>
+                <li><a href="mijn_recepten.php">mijn recepten</a></li>
             <? } ?>
 
         
